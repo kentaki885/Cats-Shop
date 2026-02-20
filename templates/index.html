@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{%block head%}
+<title>Cats Shop</title>
+{%endblock%}
+
+
+{%block body%}
+<h1>Cats Shop</h1>
+<div class="cat-container">
+    {% for cat in cats %}
+    <div class="cat-card">
+        <a href="/{{ cat.id }}">
+            <img src="{{ url_for('static', filename='images/' ~ cat.id ~ '.jpeg') }}"
+                 alt="{{ cat.id }}" width="300" height="400">
+        </a>
+        <div class="cat-texts">
+            <a href="/{{ cat.id }}">
+                <p>{{ cat.id | capitalize }}</p>
+                <p>{{ cat.price }}</p>
+                </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{%endblock%}

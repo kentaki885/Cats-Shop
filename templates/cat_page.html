@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{%block head%}
+<title>Cats Shop</title>
+{%endblock%}
+
+
+{%block body%}
+<h1>Cats Shop</h1>
+<div class="cat_page">
+    <img src="{{ url_for('static', filename='images/' ~ cat.id ~ '.jpeg') }}"
+         alt="{{ cat.id }}" width="300" height="400">
+    <div class="cat_page_texts">
+        <p>{{ cat.id | capitalize }}</p>
+        <p>{{cat.price}}</p>
+    </div>
+    <p class="desc">{{cat.desc}}</p>
+    <input type="button" value="Return" onclick="window.location.href='/'">
+</div>
+{%endblock%}
